@@ -25,20 +25,19 @@
 | [1,2,3,4,5] | [1]     |
 | [1,3,2,4,2] | [1,2,3] |
 
-* 풀이법
+**풀이법**
 
-  1번, 2번, 3번 수포자들의 문제를 찍는 패턴을 배열로 만든다. (first, second, third)
+1번, 2번, 3번 수포자들의 문제를 찍는 패턴을 배열로 만든다. (first, second, third)
 
-  for문으로 answers의 문제들을 하나씩 체크하면서 맞는 사람의 score을 +1한다.
+for문으로 answers의 문제들을 하나씩 체크하면서 맞는 사람의 score을 +1한다.
 
-  score의 max를 비교하여 answer 배열에 append한다.
+score의 max를 비교하여 answer 배열에 append한다.
 
-  ```python
-  for i, s in enumerate(score):
-    if s == max(score):
-      answer.append(i+1)
-  ```
-
+```python
+for i, s in enumerate(score):
+  if s == max(score):
+    answer.append(i+1)
+```
 
 ---------
 
@@ -76,28 +75,28 @@
 | 3    | 4      |
 | 4    | 11     |
 
-* 풀이법
+**풀이법**
 
-  pattern 변수를 '124'로 초기화한다.
+pattern 변수를 '124'로 초기화한다.
 
-  만약 입력 값이 3보다 작거나 같다면 124중에서 해당 글자를 리턴한다.
+만약 입력 값이 3보다 작거나 같다면 124중에서 해당 글자를 리턴한다.
 
-  입력 값이 3보다 크다면 divmod라는 파이썬 내장 함수를 사용해서 입력 값을 3으로 나눈 몫과 나머지를 얻는다.
+입력 값이 3보다 크다면 divmod라는 파이썬 내장 함수를 사용해서 입력 값을 3으로 나눈 몫과 나머지를 얻는다.
 
-  그 후 몫을 solution() 함수에 다시 넣어 재귀를 만든다. 그 후 pattern을 더하여 풀었다.
+그 후 몫을 solution() 함수에 다시 넣어 재귀를 만든다. 그 후 pattern을 더하여 풀었다.
 
-  * *<u>divmod(a, b) -> a를 b로 나눈 몫과 나머지를 리턴함</u>*
+* *<u>divmod(a, b) -> a를 b로 나눈 몫과 나머지를 리턴함</u>*
 
-  ```python
-  pattern = '124'
-  
-  def solution(n):
-      if n<=3:
-          return pattern[n-1]
-      else:
-          q, r = divmod(n-1, 3)
-          return solution(q) + pattern[r]
-  ```
+```python
+pattern = '124'
+
+def solution(n):
+    if n<=3:
+        return pattern[n-1]
+    else:
+        q, r = divmod(n-1, 3)
+        return solution(q) + pattern[r]
+```
 
 --------
 
@@ -132,35 +131,100 @@
 
 따라서 7일째에 2개의 기능, 9일째에 1개의 기능이 배포됩니다.
 
-* 풀이법
+**풀이법**
 
-  day 변수를 1로 할당한다.
+day 변수를 1로 할당한다.
 
-  count 는 일이 끝나는 작업 개수이다.
+count 는 일이 끝나는 작업 개수이다.
 
-  입력된 작업 배열이 끝날 때까지 while문을 실행한다.
+입력된 작업 배열이 끝날 때까지 while문을 실행한다.
 
-  작업 배열이 있을 때 작업 배열의 첫번째와 작업 진행 속도의 첫번째를 더해 day를 곱한 값이 100(100%)가 넘는다면, count를 하나 더하고 해당 작업과 진행 속도를 배열에서 제거한다.
+작업 배열이 있을 때 작업 배열의 첫번째와 작업 진행 속도의 첫번째를 더해 day를 곱한 값이 100(100%)가 넘는다면, count를 하나 더하고 해당 작업과 진행 속도를 배열에서 제거한다.
 
-  count가 0이상이라면 정답 배열에 추가한다. 
+count가 0이상이라면 정답 배열에 추가한다. 
 
-  while문이 끝날 때 하루를 더한다.
+while문이 끝날 때 하루를 더한다.
 
-  위의 작업을 작업 목록에 작업이 없을 때까지 진행한다.
+위의 작업을 작업 목록에 작업이 없을 때까지 진행한다.
 
-  ```python
-      while progresses:
-          count = 0
-          while progresses and progresses[0] + speeds[0] * day >= 100:
-              count += 1
-              progresses.pop(0)
-              speeds.pop(0)
-  
-          if count != 0:
-              answer.append(count)
-              
-          day += 1
-  ```
+```python
+    while progresses:
+        count = 0
+        while progresses and progresses[0] + speeds[0] * day >= 100:
+            count += 1
+            progresses.pop(0)
+            speeds.pop(0)
 
-  
+        if count != 0:
+            answer.append(count)
+            
+        day += 1
+```
+
+-------
+
+**4. 프로그래머스 문제 [42583](https://programmers.co.kr/learn/courses/30/lessons/42583)**
+
+###### **문제 설명**
+
+트럭 여러 대가 강을 가로지르는 일 차선 다리를 정해진 순으로 건너려 합니다. 모든 트럭이 다리를 건너려면 최소 몇 초가 걸리는지 알아내야 합니다. 트럭은 1초에 1만큼 움직이며, 다리 길이는 bridge_length이고 다리는 무게 weight까지 견딥니다.
+※ 트럭이 다리에 완전히 오르지 않은 경우, 이 트럭의 무게는 고려하지 않습니다.
+
+예를 들어, 길이가 2이고 10kg 무게를 견디는 다리가 있습니다. 무게가 [7, 4, 5, 6]kg인 트럭이 순서대로 최단 시간 안에 다리를 건너려면 다음과 같이 건너야 합니다.
+
+| 경과 시간 | 다리를 지난 트럭 | 다리를 건너는 트럭 | 대기 트럭 |
+| --------- | ---------------- | ------------------ | --------- |
+| 0         | []               | []                 | [7,4,5,6] |
+| 1~2       | []               | [7]                | [4,5,6]   |
+| 3         | [7]              | [4]                | [5,6]     |
+| 4         | [7]              | [4,5]              | [6]       |
+| 5         | [7,4]            | [5]                | [6]       |
+| 6~7       | [7,4,5]          | [6]                | []        |
+| 8         | [7,4,5,6]        | []                 | []        |
+
+따라서, 모든 트럭이 다리를 지나려면 최소 8초가 걸립니다.
+
+solution 함수의 매개변수로 다리 길이 bridge_length, 다리가 견딜 수 있는 무게 weight, 트럭별 무게 truck_weights가 주어집니다. 이때 모든 트럭이 다리를 건너려면 최소 몇 초가 걸리는지 return 하도록 solution 함수를 완성하세요.
+
+##### **제한 조건**
+
+- bridge_length는 1 이상 10,000 이하입니다.
+- weight는 1 이상 10,000 이하입니다.
+- truck_weights의 길이는 1 이상 10,000 이하입니다.
+- 모든 트럭의 무게는 1 이상 weight 이하입니다.
+
+##### **입출력 예**
+
+| bridge_length | weight | truck_weights                   | return |
+| ------------- | ------ | ------------------------------- | ------ |
+| 2             | 10     | [7,4,5,6]                       | 8      |
+| 100           | 100    | [10]                            | 101    |
+| 100           | 100    | [10,10,10,10,10,10,10,10,10,10] | 110    |
+
+**풀이법**
+
+처음에 계속 테스트 케이스 5에서 시간 초과가 나서 한참 찾다가 구글링을 해서 이유를 알았다.
+
+sum()이랑 pop(0)에서 시간복잡도가 크게 나온 것 같았다.
+
+그래서 반복문에는 되도록이면 안쓰려고 로직을 바꿨더니 풀렸다!
+
+우선 다리를 지나고 있는 트럭 리스트인 going이랑 지나고 있는 트럭의 시간을 저장할 time 리스트를 만들었다.
+
+그리고 while 문을 돌면서 시간을 1초씩 늘려주고 시간이 지나 나가야 하는 트럭은 제거해주고, weight 이하의 무게면 트럭 리스트에 추가하면서 풀어줬다.
+
+```python
+    while going or truck_weights:
+        answer += 1
+
+        if time:
+            if time[0] + bridge_length == answer:
+                going.pop(0)
+                time.pop(0)
+
+        if truck_weights:
+            if sum(going) + truck_weights[0] <= weight:
+                going.append(truck_weights.pop(0))
+                time.append(answer)
+```
 
