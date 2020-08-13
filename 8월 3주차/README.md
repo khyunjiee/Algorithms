@@ -48,7 +48,7 @@ queue라는 list를 하나 만든 후 거기에 값을 append하고 remove 했�
 
 -----
 
-**2. 프로그래머스 문제 42842**
+**2. 프로그래머스 문제 [42842](https://github.com/khyunjiee/Algorithms/blob/master/8%EC%9B%94%203%EC%A3%BC%EC%B0%A8/Programmers42842.py)**
 
 ###### **문제 설명**
 
