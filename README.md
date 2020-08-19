@@ -12,5 +12,8 @@
 |                                                              | 2020.08.14 | [43163](https://github.com/khyunjiee/Algorithms/blob/master/8%EC%9B%94%203%EC%A3%BC%EC%B0%A8/Programmers43163.py) |
 |                                                              | 2020.08.15 | [42892](https://github.com/khyunjiee/Algorithms/blob/master/8%EC%9B%94%203%EC%A3%BC%EC%B0%A8/Programmers42892.py) |
 |                                                              | 2020.08.16 | [42860](https://github.com/khyunjiee/Algorithms/blob/master/8%EC%9B%94%203%EC%A3%BC%EC%B0%A8/Programmers42860.py) |
-| 8월 넷째주 스터디                                            | 2020.08.18 | [42579](https://github.com/khyunjiee/Algorithms/blob/master/8%EC%9B%94%204%EC%A3%BC%EC%B0%A8/Programmers42579.py) |
+| [8월 넷째주 스터디](https://github.com/khyunjiee/Algorithms/blob/master/8%EC%9B%94%204%EC%A3%BC%EC%B0%A8/README.md) | 2020.08.18 | [42579](https://github.com/khyunjiee/Algorithms/blob/master/8%EC%9B%94%204%EC%A3%BC%EC%B0%A8/Programmers42579.py) |
+|                                                              | 2020.08.19 | [43165](https://github.com/khyunjiee/Algorithms/blob/master/8%EC%9B%94%204%EC%A3%BC%EC%B0%A8/Programmers43165.py) |
+|                                                              |            |                                                              |
+|                                                              |            |                                                              |
 
