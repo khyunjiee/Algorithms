@@ -16,4 +16,9 @@
 |                                                              | 2020.08.19 | [43165](https://github.com/khyunjiee/Algorithms/blob/master/8%EC%9B%94%204%EC%A3%BC%EC%B0%A8/Programmers43165.py) |
 |                                                              | 2020.08.20 | [42883](https://github.com/khyunjiee/Algorithms/blob/master/8%EC%9B%94%204%EC%A3%BC%EC%B0%A8/Programmers42883.py) |
 |                                                              | 2020.08.21 | [12913](https://github.com/khyunjiee/Algorithms/blob/master/8%EC%9B%94%204%EC%A3%BC%EC%B0%A8/Programmers12913.py) |
+|                                                              | 2020.08.23 | [12978](https://github.com/khyunjiee/Algorithms/blob/master/8%EC%9B%94%204%EC%A3%BC%EC%B0%A8/Programmers12978.py) |
+|                                                              |            |                                                              |
+|                                                              |            |                                                              |
+|                                                              |            |                                                              |
+|                                                              |            |                                                              |
 
