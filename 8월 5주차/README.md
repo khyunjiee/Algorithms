@@ -1,4 +1,4 @@
-# 8월 셋째주 알고리즘
+# 8월 5주차 알고리즘
 
 **1. 프로그래머스 문제** [**42747**](https://programmers.co.kr/learn/courses/30/lessons/42747)
 
@@ -33,5 +33,39 @@ for i in range(maxNum+1):
         if bigger >= i and smaller <= i:
             answer = max(answer, i)
     bigger, smaller = 0, 0
+```
+
+--------
+
+**2. 프로그래머스 문제 [42584](https://programmers.co.kr/learn/courses/30/lessons/42584)**
+
+###### **문제 설명**
+
+초 단위로 기록된 주식가격이 담긴 배열 prices가 매개변수로 주어질 때, 가격이 떨어지지 않은 기간은 몇 초인지를 return 하도록 solution 함수를 완성하세요.
+
+##### **제한사항**
+
+- prices의 각 가격은 1 이상 10,000 이하인 자연수입니다.
+- prices의 길이는 2 이상 100,000 이하입니다.
+
+##### **입출력 예**
+
+| prices          | return          |
+| --------------- | --------------- |
+| [1, 2, 3, 2, 3] | [4, 3, 1, 1, 0] |
+
+**풀이법**
+
+스택/큐 문제라고 하는데 나는 그냥 무식하게 for문 돌면서 풀었다..
+
+```python
+for corrent_index in range(len(prices)):
+    for smaller_index in range(corrent_index, len(prices)):
+        if prices[corrent_index] > prices[smaller_index]:
+            answer.append(smaller_index - corrent_index)
+            break
+        elif smaller_index == len(prices)-1 and prices[corrent_index] <= prices[smaller_index]:
+            answer.append(smaller_index - corrent_index)
+            break
 ```
 
