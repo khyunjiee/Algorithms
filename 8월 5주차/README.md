@@ -109,3 +109,48 @@ for corrent_index in range(len(prices)):
       answer.append(list[c[2]-1])
 ```
 
+-------
+
+**4. 프로그래머스 문제 [12909](https://programmers.co.kr/learn/courses/30/lessons/12909)**
+
+###### **문제 설명**
+
+괄호가 바르게 짝지어졌다는 것은 '(' 문자로 열렸으면 반드시 짝지어서 ')' 문자로 닫혀야 한다는 뜻입니다. 예를 들어
+
+- ()() 또는 (())() 는 올바른 괄호입니다.
+- )()( 또는 (()( 는 올바르지 않은 괄호입니다.
+
+'(' 또는 ')' 로만 이루어진 문자열 s가 주어졌을 때, 문자열 s가 올바른 괄호이면 true를 return 하고, 올바르지 않은 괄호이면 false를 return 하는 solution 함수를 완성해 주세요.
+
+##### **제한사항**
+
+- 문자열 s의 길이 : 100,000 이하의 자연수
+- 문자열 s는 '(' 또는 ')' 로만 이루어져 있습니다.
+
+##### **입출력 예**
+
+| s      | answer |
+| ------ | ------ |
+| ()()   | true   |
+| (())() | true   |
+| )()(   | false  |
+| (()(   | false  |
+
+##### **풀이법**
+
+괄호 스트링을 for문을 돌면서 열린괄호 '(' 면 count +1, 닫힌괄호 ')' 면 count -1을 했다.
+반복문 도중에 count가 음수가 되면 break, 반복문 끝난 후에 최종 count가 0이면 answer을 True로 바꿔줬다.
+
+```python
+for p in s:
+    if count < 0:
+        break
+    if p == '(':
+        count += 1
+    elif p == ')':
+        count -= 1
+
+if count == 0:
+    answer = True
+```
+
