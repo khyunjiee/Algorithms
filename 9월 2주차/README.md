@@ -308,3 +308,61 @@ for (String ment : record) {
 }
 ```
 
+------
+
+**4. 소수 찾기 [42839](https://programmers.co.kr/learn/courses/30/lessons/42839)**
+
+###### **문제 설명**
+
+한자리 숫자가 적힌 종이 조각이 흩어져있습니다. 흩어진 종이 조각을 붙여 소수를 몇 개 만들 수 있는지 알아내려 합니다.
+
+각 종이 조각에 적힌 숫자가 적힌 문자열 numbers가 주어졌을 때, 종이 조각으로 만들 수 있는 소수가 몇 개인지 return 하도록 solution 함수를 완성해주세요.
+
+###### **제한사항**
+
+- numbers는 길이 1 이상 7 이하인 문자열입니다.
+- numbers는 0~9까지 숫자만으로 이루어져 있습니다.
+- 013은 0, 1, 3 숫자가 적힌 종이 조각이 흩어져있다는 의미입니다.
+
+###### **입출력 예**
+
+| numbers | return |
+| ------- | ------ |
+| 17      | 3      |
+| 011     | 2      |
+
+###### **입출력 예 설명**
+
+예제 #1
+[1, 7]으로는 소수 [7, 17, 71]를 만들 수 있습니다.
+
+예제 #2
+[0, 1, 1]으로는 소수 [11, 101]를 만들 수 있습니다.
+
+- 11과 011은 같은 숫자로 취급합니다.
+
+###### **풀이법**
+
+순열로 모든 조합을 찾아서 소수인 수만 set에 넣었다.
+Set을 사용한 이유는 중복을 피하기 위해서 사용했다.
+그 후에 answer에는 set에 size를 부여해주었다.
+
+```java
+private void permutation(int[] arr, int depth, int n, int r, HashSet<Integer> set) {
+    if (depth == r) {
+        String k = "";
+        for (int i = 0; i < r; i++) {
+            k += arr[i];
+        }
+        isItAnswer(Integer.parseInt(k), set);
+        return;
+    }
+
+    for (int i = depth; i < n; i++) {
+        swap(arr, depth, i);
+        permutation(arr, depth + 1, n, r, set);
+        swap(arr, depth, i);
+    }
+}
+```
+
