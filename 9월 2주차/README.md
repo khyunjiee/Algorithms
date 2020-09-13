@@ -366,3 +366,72 @@ private void permutation(int[] arr, int depth, int n, int r, HashSet<Integer> se
 }
 ```
 
+------
+
+**5. 수식 최대화 [67257](https://programmers.co.kr/learn/courses/30/lessons/67257)**
+
+###### 입출력 예
+
+| expression             | result |
+| ---------------------- | ------ |
+| `"100-200*300-500+20"` | 60420  |
+| `"50*6-3*2"`           | 300    |
+
+###### 입출력 예에 대한 설명
+
+###### 입출력 예 #1
+
+`*` > `+` > `-` 로 연산자 우선순위를 정했을 때, 가장 큰 절댓값을 얻을 수 있습니다.
+연산 순서는 아래와 같습니다.
+`100-200*300-500+20`
+= `100-(200*300)-500+20`
+= `100-60000-(500+20)`
+= `(100-60000)-520`
+= `(-59900-520)`
+= `-60420`
+따라서, 우승 시 받을 수 있는 상금은 |-60420| = 60420 입니다.
+
+###### 입출력 예 #2
+
+`-` > `*` 로 연산자 우선순위를 정했을 때, 가장 큰 절댓값을 얻을 수 있습니다.
+연산 순서는 아래와 같습니다.(expression에서 `+` 연산자는 나타나지 않았으므로, 고려할 필요가 없습니다.)
+`50*6-3*2`
+= `50*(6-3)*2`
+= `(50*3)*2`
+= `150*2`
+= `300`
+따라서, 우승 시 받을 수 있는 상금은 300 입니다.
+
+###### **풀이법**
+
+```java
+private void dfs(int count, char[] p) {
+    if (count == 3) {
+        ArrayList<Long> numbers = new ArrayList<>(nums);
+        ArrayList<Character> operations = new ArrayList<>(ops);
+
+        for (int i = 0; i < p.length; i++) {
+            for (int j = 0; j < operations.size(); j++) {
+                if (p[i] == operations.get(j)) {
+                    Long res = calculation(numbers.remove(j), numbers.remove(j), p[i]);
+                    numbers.add(j, res);
+                    operations.remove(j);
+                    j--;
+                }
+            }
+        }
+        answer = Math.max(answer, Math.abs(numbers.get(0)));
+        return;
+    }
+
+    for (int i = 0; i < 3; i++) {
+        if (!check[i]) {
+            check[i] = true;
+            p[count] = prior[i];
+            dfs(count + 1, p);
+            check[i] = false;
+        }
+    }
+}
+```
+
