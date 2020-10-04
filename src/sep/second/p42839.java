@@ -1,4 +1,4 @@
-package second.sep;
+package sep.second;
 
 import java.util.HashSet;
 

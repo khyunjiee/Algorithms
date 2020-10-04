@@ -1,4 +1,4 @@
-package forth.sep;
+package sep.fourth;
 
 import java.util.HashSet;
 

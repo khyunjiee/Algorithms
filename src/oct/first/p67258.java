@@ -1,4 +1,4 @@
-package first.oct;
+package oct.first;
 
 import java.util.*;
 import java.util.stream.Collectors;

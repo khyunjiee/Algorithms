@@ -1,4 +1,4 @@
-package first.oct;
+package oct.first;
 
 import java.util.HashMap;
 import java.util.Map;

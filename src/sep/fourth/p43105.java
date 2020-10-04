@@ -1,4 +1,4 @@
-package forth.sep;
+package sep.fourth;
 
 public class p43105 {
     class Solution {

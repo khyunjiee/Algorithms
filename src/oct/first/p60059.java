@@ -1,4 +1,4 @@
-package first.oct;
+package oct.first;
 
 public class p60059 {
     class Solution {

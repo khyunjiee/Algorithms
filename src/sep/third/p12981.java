@@ -1,4 +1,4 @@
-package third.sep;
+package sep.third;
 
 import java.util.*;
 import java.util.stream.Collectors;
