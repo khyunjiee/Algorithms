@@ -1,6 +1,6 @@
 ## 2020년 10월 2주차 알고리즘
 
-**1. 스킬트리 [49993](https://programmers.co.kr/learn/courses/30/lessons/49993)**
+1. **스킬트리 [49993](https://programmers.co.kr/learn/courses/30/lessons/49993)**
 
 ###### **문제 설명**
 
@@ -62,7 +62,7 @@ for (String tree : skill_trees) {
 
 ------
 
-**2. 단속카메라 [42884](https://programmers.co.kr/learn/courses/30/lessons/42884)**
+2. **단속카메라 [42884](https://programmers.co.kr/learn/courses/30/lessons/42884)**
 
 ###### **문제 설명**
 
@@ -109,7 +109,7 @@ for (int i = 1; i < routes.length; ++i) {
 
 -----
 
-**3. 순위 [49191](https://programmers.co.kr/learn/courses/30/lessons/49191)**
+3. **순위 [49191](https://programmers.co.kr/learn/courses/30/lessons/49191)**
 
 ###### **문제 설명**
 
@@ -165,6 +165,81 @@ for (int i = 0; i < n; i++) {
         }
         boxer.lose.addAll(losers);
     }
+}
+```
+
+------
+
+4. **N으로 표현 [42895](https://programmers.co.kr/learn/courses/30/lessons/42895)**
+
+###### **문제 설명**
+
+아래와 같이 5와 사칙연산만으로 12를 표현할 수 있습니다.
+
+12 = 5 + 5 + (5 / 5) + (5 / 5)
+12 = 55 / 5 + 5 / 5
+12 = (55 + 5) / 5
+
+5를 사용한 횟수는 각각 6,5,4 입니다. 그리고 이중 가장 작은 경우는 4입니다.
+이처럼 숫자 N과 number가 주어질 때, N과 사칙연산만 사용해서 표현 할 수 있는 방법 중 N 사용횟수의 최솟값을 return 하도록 solution 함수를 작성하세요.
+
+###### **제한사항**
+
+- N은 1 이상 9 이하입니다.
+- number는 1 이상 32,000 이하입니다.
+- 수식에는 괄호와 사칙연산만 가능하며 나누기 연산에서 나머지는 무시합니다.
+- 최솟값이 8보다 크면 -1을 return 합니다.
+
+###### **입출력 예**
+
+| N    | number | return |
+| ---- | ------ | ------ |
+| 5    | 12     | 4      |
+| 2    | 11     | 3      |
+
+###### **입출력 예 설명**
+
+* 예제 #1
+  문제에 나온 예와 같습니다.
+
+* 예제 #2
+  `11 = 22 / 2`와 같이 2를 3번만 사용하여 표현할 수 있습니다.
+
+###### **풀이법**
+
+8이 넘어가면 -1로 반환하기 때문에, 1번부터 8번까지의 set을 만든다.
+
+1번 set은 N, 2번 set은 NN과 N+N, N-N, N*N, N/N을 담는다. 여기서, N은 그 전의 1번 set의 요소.
+
+3번 set은 NNN과 N+NN, N-NN ... NN/N을 담는다. 여기서, NN과 N은 1, 2번의 set 요소.
+
+이렇게 쭉 8번까지 담는데, 그 전에 number가 발생하면 바로 return, 8번까지 담는데 number가 나오지 않으면 while문을 break로 탈출한다.
+
+```java
+while (answer < 8) {
+    if (list.get(answer).contains(number)) break;
+    answer++;
+
+    HashSet<Integer> nset = new HashSet<>();
+    String n = String.valueOf(N);
+    for (int i = 0; i < answer; i++) n += String.valueOf(N);
+    nset.add(Integer.parseInt(n));
+
+    for (int i = 0; i < answer; i++) {
+        for (int j = 0; i + j < answer; j++) {
+            for (Iterator it1 = list.get(i).iterator(); it1.hasNext();) {
+                int n1 = (int) it1.next();
+                for (Iterator it2 = list.get(j).iterator(); it2.hasNext();) {
+                    int n2 = (int) it2.next();
+                    nset.add(n1 + n2);
+                    nset.add(n1 - n2);
+                    nset.add(n1 * n2);
+                    if (n2 != 0) nset.add(n1 / n2);
+                }
+            }
+        }
+    }
+    list.add(nset);
 }
 ```
 
