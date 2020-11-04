@@ -74,5 +74,22 @@ while (true) {
 
 -----
 
+3. **RGB 거리 [1149](https://www.acmicpc.net/problem/1149)** 
 
+최솟값들을 찾아 더해서 배열에 저장했다.
+
+마지막에는 N-1 행의 값들 중 작은 값을 구하면 답을 도출해낼 수 있다.
+
+```java
+houseColor[0][0] = houseCosts[0][0];
+houseColor[0][1] = houseCosts[0][1];
+houseColor[0][2] = houseCosts[0][2];
+
+for (int i = 1; i < houses; i++) {
+    houseColor[i][0] = Math.min(houseColor[i - 1][1], houseColor[i - 1][2]) + houseCosts[i][0];
+    houseColor[i][1] = Math.min(houseColor[i - 1][0], houseColor[i - 1][2]) + houseCosts[i][1];
+    houseColor[i][2] = Math.min(houseColor[i - 1][0], houseColor[i - 1][1]) + houseCosts[i][2];
+
+        }
+```
 
