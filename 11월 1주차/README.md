@@ -93,3 +93,41 @@ for (int i = 1; i < houses; i++) {
         }
 ```
 
+-----
+
+4. **집합 [11723](https://www.acmicpc.net/problem/11723)**
+
+우선 계속 시간 초과가 나서 당황했다. 근데 check를 할 때마다 println을 사용하는 것이 아니라 StringBuilder를 활용해서 한번에 모았다가 출력해주니까 시간 초과 문제는 해결됐다.
+
+처음에는 HashSet을 활용해서 풀어주었는데 잘 풀리지 않아서 좀 찾아보니까 비트 마스크 문제라는 것을 알았다.
+
+^ ~ << >> & | 등의 비트 연산자를 활용해서 풀었다.
+
+또한 all, empty는 연산 string만 받고 number는 입력받지 않기 때문에 이 경우도 생각해주어야 한다.
+
+```java
+for (int i = 0; i < m; i++) {
+    String operation = scanner.next();
+    int num = 0;
+
+    if (operation.equals("all")) {
+        s = (1 << 21) -1;
+    } else if (operation.equals("empty")) {
+        s = 0;
+    } else {
+        num = scanner.nextInt();
+    }
+
+    if (operation.equals("add")) {
+        s = s | (1 << num);
+    } else if (operation.equals("remove")) {
+        s = s &~ (1 << num);
+    } else if (operation.equals("check")) {
+        if ((s & (1 << num)) > 0) result.append("1\n");
+        else result.append("0\n");
+    } else if (operation.equals("toggle")) {
+        s = s ^ (1 << num);
+    }
+}
+```
+
