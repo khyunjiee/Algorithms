@@ -131,3 +131,36 @@ for (int i = 0; i < m; i++) {
 }
 ```
 
+-----
+
+5. **미로 탐색 [2178](https://www.acmicpc.net/problem/2178)**
+
+bfs 방식으로 풀었다.
+
+방문한 곳에 다시 방문하지 않고, count를 직접 array 값을 하나씩 더해 n,m번째 배열의 숫자를 리턴했다.
+
+```java
+static void bfs(int i, int j) {
+    Queue<int[]> queue = new LinkedList<>();
+    queue.offer(new int[]{i, j});
+
+    while (!queue.isEmpty()) {
+        int location[] = queue.poll();
+        visited[i][j] = true;
+
+        for (int dir = 0; dir < 4; dir++) {
+            int r = location[0] + dr[dir];
+            int s = location[1] + ds[dir];
+
+            if (r >= 0 && s >= 0 && r < n && s < m) {
+                if (array[r][s] != 0 && !visited[r][s]) {
+                    queue.offer(new int[]{r, s});
+                    visited[r][s] = true;
+                    array[r][s] = array[location[0]][location[1]] + 1;
+                }
+            }
+        }
+    }
+}
+```
+
