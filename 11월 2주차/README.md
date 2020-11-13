@@ -67,3 +67,28 @@ for (int i = 0; i < testcase; i++) {
 }
 ```
 
+----
+
+3. **효율적인 해킹 [1325](https://www.acmicpc.net/problem/1325)**
+
+계속 Java로 풀려고 노력하다가 답지를 복붙해도 시간초과가 나서 Python으로 풀었다..!
+
+bfs에 더 맞는 문제같아서 bfs로 풀었다.
+
+```python
+def bfs(start):
+    q = deque()
+    q.append(start)
+    visit = [0 for _ in range(n + 1)]
+    visit[start] = 1
+    cnt = 1
+    while q:
+        st = q.popleft()
+        for i in s[st]:
+            if visit[i] == 0:
+                visit[i] = 1
+                cnt += 1
+                q.append(i)
+    return cnt
+```
+
