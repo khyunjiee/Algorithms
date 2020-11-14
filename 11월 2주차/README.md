@@ -128,3 +128,48 @@ public static boolean nextPermutation(int[] arr) {
 }
 ```
 
+-----
+
+5. **단어 수학 [1339](https://www.acmicpc.net/problem/1339)**
+
+문자 - 숫자 매핑으로 모든 경우 중 최댓값을 구하면 된다.
+
+한 자리씩 추가하는 경우 문자 위치를 바꾸기 보다 *10을 활용하여 String을 사용할 때 오버헤드를 줄인다.
+
+```java
+private static void permutation(int depth) {
+	if(depth == alphabet.size()) {
+		int temp = calc();
+		max = temp > max ? temp : max;
+		return;
+	}
+		
+	for(int i = 0 ; i < 10 ; ++i) {
+		if(!selected[i]) {
+			selected[i] = true;
+			// 해쉬맵으로 문자 - 숫자를 매핑한다.
+			map.put(alphabet.get(depth), i);
+			permutation(depth + 1);
+			selected[i] = false;
+		}
+	}
+}
+
+// 매핑된 문자 - 숫자를 바탕으로 합계 산출하기 
+private static int calc() {
+	int result = 0;
+		
+	for(int i = 0 ; i < N ; ++i) {
+		int temp = 0;
+		// String을 직접 핸들링하는 것은 부담이 크다(연산, 파싱) 
+		for(char c : input[i]) {
+			temp *= 10;
+			temp += map.get(c);
+		}
+		result += temp;
+	}
+		
+	return result;
+}
+```
+
