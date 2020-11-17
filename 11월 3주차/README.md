@@ -35,3 +35,39 @@ private static boolean beforePermutation(int[] arr) {
 }
 ```
 
+----
+
+2. **설탕 배달 [2839](https://www.acmicpc.net/problem/2839)**
+
+5와 3의 공배수일 경우 N에서 5를 먼저 빼고, 5나 3의 배수일 경우에는 N에서 해당 값을 빼준다.
+
+모두 해당되지 않을 경우에는 N에서 5를 빼준다.
+
+그 후에 count를 1 추가한다.
+
+while문을 돌면서 N이 0 이하일 경우에는 -1을  출력하고, 0일 경우에는 count를 출력한다.
+
+```java
+while (true) {
+    if (N % 5 == 0 && N % 3 == 0) {
+        N -= 5;
+    } else if (N % 5 == 0) {
+        N -= 5;
+    } else if (N % 3 == 0) {
+        N -= 3;
+    } else {
+        N -= 5;
+    }
+    count++;
+
+    if (N == 0) {
+        System.out.println(count);
+        break;
+    }
+    if (N < 0) {
+        System.out.println(-1);
+        break;
+    }
+}
+```
+
