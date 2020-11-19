@@ -1,6 +1,6 @@
 # Algorithms
 
-* 알고리즘 스터디 (프로그래머스)
+* 알고리즘 스터디 (프로그래머스 & 백준)
 
 | 2020.08.04                                                   | 2020.08.06                                                   | 2020.08.07                                                   | 2020.08.08                                                   | 2020.08.09                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -33,6 +33,6 @@
 | [1697](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/first/b1697.java) | [17413](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/first/b17413.java) | [1149](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/first/b1149.java) | [11723](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/first/b11723.java) | [2178](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/first/b2178.java) |
 | **2020.11.09**                                               | **2020.11.11**                                               | **2020.11.13**                                               | **2020.11.14**                                               | **2020.11.15**                                               |
 | [1874](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/second/b1874.java) | [1966](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/second/b1966.java) | [1325](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/second/b1325.py) | [10972](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/second/b10972.java) | [1339](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/second/b1339.java) |
-| **2020.11.16**                                               | **2020.11.17**                                               |                                                              |                                                              |                                                              |
-| [10973](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/third/b10973.java) | [2839](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/third/b2839.java) |                                                              |                                                              |                                                              |
+| **2020.11.16**                                               | **2020.11.17**                                               | **2020.11.19**                                               |                                                              |                                                              |
+| [10973](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/third/b10973.java) | [2839](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/third/b2839.java) | [5567](https://github.com/khyunjiee/Algorithms/blob/master/src/nov/third/b5567.java) |                                                              |                                                              |
 

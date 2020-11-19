@@ -71,3 +71,34 @@ while (true) {
 }
 ```
 
+----
+
+3. **결혼식 [5567](https://www.acmicpc.net/problem/5567)**
+
+처음에는 HashMap과 HashSet을 사용해서 풀었는데 런타임 에러가 났다.
+
+그래서 배열로 바꿨다.
+
+친구들 간의 관계를 담는 2차원 배열 friends와 초대 여부를 담는 invites 배열을 사용했다.
+
+우선 관계가 있는 친구들끼리는 배열 값을 1로 초기화했다.
+
+그 후에 1번인 상근이와 관련이 있으면, 그 친구를 초대하고 그 친구의 친구까지 초대해서 초대하는 명수를 리턴했다.
+
+```java
+for (int i = 2; i < N + 1; i++) {
+    if (friends[1][i] == 1) {
+        if (!invites[i]) {
+            answer++;
+            invites[i] = true;
+        }
+        for (int j = 2; j < N + 1; j++) {
+            if (friends[i][j] == 1 && !invites[j]) {
+                answer++;
+                invites[j] = true;
+            }
+        }
+    }
+}
+```
+
