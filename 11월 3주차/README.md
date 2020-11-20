@@ -102,3 +102,22 @@ for (int i = 2; i < N + 1; i++) {
 }
 ```
 
+---
+
+4. **구간 합 구하기 [11659](https://www.acmicpc.net/problem/11659)**
+
+숫자 개수를 받은 후 배열에 처음부터 해당 구간까지의 합을 저장한다.
+
+그 후의 구간의 start와 end값을 받아 해당 인덱스 값을 빼준다.
+
+```java
+for (int i = 0; i < M; i++) {
+    st = new StringTokenizer(br.readLine());
+    int start = Integer.parseInt(st.nextToken()) - 1;
+    int end = Integer.parseInt(st.nextToken());
+
+    int sum = numList[end] - numList[start];
+    sb.append(sum + "\n");
+}
+```
+
