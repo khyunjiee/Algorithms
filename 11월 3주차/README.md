@@ -121,3 +121,24 @@ for (int i = 0; i < M; i++) {
 }
 ```
 
+----
+
+5. **가장 큰 정사각형 찾기 https://programmers.co.kr/learn/courses/30/lessons/12905**
+
+DP로 풀었다.
+
+한 지점을 기준으로 우측, 아래쪽으로 탐색하면서 가장 큰 정사각형을 찾았다.
+
+```java
+for(int i = 1 ; i < arr.length; i++) {
+    for(int j = 1 ; j < arr[0].length ; j++) {
+        if(arr[i][j]==1) {
+            int min = Math.min(arr[i-1][j], arr[i][j-1]);
+            min = Math.min(min, arr[i-1][j-1]);
+
+            arr[i][j] = min + 1;
+            answer = Math.max(answer, arr[i][j]);
+        }
+    }
+}
+```
