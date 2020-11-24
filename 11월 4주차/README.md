@@ -20,3 +20,20 @@ while (s.length() > 1) {
 }
 ```
 
+---
+
+2. **곱셈 [1629](https://www.acmicpc.net/problem/1629)**
+
+(A * B) % C = ((A % C) * (B % C)) % C 라는 식을 적용했다.
+
+```java
+while (M > 0) {
+    if (M % 2 == 1) {
+        answer *= mul;
+        answer %= O;
+    }
+    mul = ((mul%O)*(mul%O))%O;
+    M /= 2;
+}
+```
+
