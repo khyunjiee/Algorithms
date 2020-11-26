@@ -74,3 +74,23 @@ while (true) {
 }
 ```
 
+---
+
+4. **퇴사 [14501](https://www.acmicpc.net/problem/14501)**
+
+dynamic programming을 활용해서 풀었다.
+
+dp[]는 당일까지의 수익금 배열이다.
+
+(현재 날짜 + 상담 완료) 날짜의 수익금은 (현재 날짜 + 상담 완료)과 (오늘 이전까지 최대 수입 + 오늘 버는 수입) 중 최댓값을 저장한다.
+
+그 후 max 값을 변경한다.
+
+```java
+for (int i = 1; i <=N+1; i++) {
+    dp[i] = Math.max(dp[i], max);
+    dp[days[i]+i] = Math.max(dp[days[i]+i],costs[i]+dp[i]);
+    max = Math.max(max, dp[i]);
+}
+```
+
