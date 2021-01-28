@@ -46,16 +46,7 @@ class Solution {
 
         String[] answer = answerList.toArray(new String[answerList.size()]);
 
-        printArray(answer);
-
         return answer;
-    }
-
-    public void printArray(String[] answer) {
-        for (String a: answer) {
-            System.out.print(a + " ");
-        }
-        System.out.println();
     }
 
     public void dfs(String[] singleMenus, String resultCourse, int size, int startIndex, int arrayListIndex) {
@@ -75,10 +66,8 @@ class Solution {
     public void addCourse(String resultCourse, int arrayListIndex) {
         if (allCourses.get(arrayListIndex).containsKey(resultCourse)) {
             allCourses.get(arrayListIndex).put(resultCourse, allCourses.get(arrayListIndex).get(resultCourse) + 1);
-//            System.out.println("[" + resultCourse + ": " + allCourses.get(arrayListIndex).get(resultCourse) + "]");
         } else {
             allCourses.get(arrayListIndex).put(resultCourse, 1);
-//            System.out.println("[" + resultCourse + ": " + allCourses.get(arrayListIndex).get(resultCourse) + "]");
         }
     }
 
