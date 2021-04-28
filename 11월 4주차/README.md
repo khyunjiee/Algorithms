@@ -94,3 +94,34 @@ for (int i = 1; i <=N+1; i++) {
 }
 ```
 
+----
+
+5. **모든 순열 [10974](https://www.acmicpc.net/problem/10974)**
+
+dfs를 돌면서 모든 인덱스를 방문하여 output 배열에 넣는다.
+
+이미 배열에 추가한 것은 visited 배열을 true로 만들어서 중복되지 않게 처리한다.
+
+depth는 output에 들어간 숫자의 갯수이고, depth가 N이 되면 return한다.
+
+```java
+static void perm(int[] arr, int[] output, boolean[] visited, int depth, int n, int r) {
+    if (depth == r) {
+        for (int i : output) {
+            sb.append(i + " ");
+        }
+        sb.append("\n");
+        return;
+    }
+
+    for (int i=0; i<n; i++) {
+        if (visited[i] != true) {
+            visited[i] = true;
+            output[depth] = arr[i];
+            perm(arr, output, visited, depth + 1, n, r);
+            visited[i] = false;;
+        }
+    }
+}
+```
+
